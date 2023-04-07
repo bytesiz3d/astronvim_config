@@ -20,8 +20,14 @@ return {
       return opts
     end,
   },
-  { "mfussenegger/nvim-dap",                    enabled = true },
-  { "nvim-telescope/telescope-fzf-native.nvim", enabled = true },
+  { "mfussenegger/nvim-dap", enabled = true },
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = {
+      "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+    },
+    enabled = true
+  },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --
